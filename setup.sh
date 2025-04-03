@@ -10,5 +10,5 @@ cd ..
 
 # Unzip compressed files
 cd vulfix_data
-gunzip train.json.gz
+gunzip -k train.json.gz
 cd ..
