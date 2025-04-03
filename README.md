@@ -30,21 +30,16 @@ This repository is the replication package of **"Out of Sight, Out of Mind: Bett
 
 ## Install dependencies
 
-To install dependencies in once, run
+To install dependencies in once, run:
 ```bash
 ./setup.sh
 ```
 
-or you can install them manually. The dependencies are:
+Then, install conda env and dependencies:
 ```bash
 conda create -n vulmaster python=3.9 
 conda activate vulmaster
 pip install -r requirements.txt
-
-pip install gdown
-mkdir bugfix_pretrain_with_ast
-cd bugfix_pretrain_with_ast
-gdown 1057u16sqSf14w51CA0fZt-WJ6FjS2X6I # CodeT5 model
 ```
 ## Train and Test 
 
