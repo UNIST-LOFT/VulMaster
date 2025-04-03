@@ -30,25 +30,34 @@ This repository is the replication package of **"Out of Sight, Out of Mind: Bett
 
 ## Install dependencies
 
- Please install them first.
+To install dependencies in once, run
+```bash
+./setup.sh
 ```
-conda create -n vulmaster python=3.8 
+
+or you can install them manually. The dependencies are:
+```bash
+conda create -n vulmaster python=3.9 
 conda activate vulmaster
 pip install -r requirements.txt
+
+pip install gdown
+mkdir bugfix_pretrain_with_ast
+cd bugfix_pretrain_with_ast
+gdown 1057u16sqSf14w51CA0fZt-WJ6FjS2X6I # CodeT5 model
 ```
 ## Train and Test 
 
 To replicate VulMaster, ensure that `c_dataset/` is in the root path of this project. 
 
 Training:
-```
-
-bash 01_train.sh 
+```bash
+./0a_train.sh 
 ```
 
 Testing:
-```
-bash 02_test.sh
+```bash
+./0b_test.sh
 ```
 
 ## Generate fixes for CWE vulnerable code examples via ChatGPT

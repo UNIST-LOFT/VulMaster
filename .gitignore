@@ -1,0 +1,9 @@
+# Large files
+data.rar
+**/pytorch_model.bin
+
+# Experiment results
+checkpoint_final/final_model/run.log
+
+**/__pycache__
+**/train.json
