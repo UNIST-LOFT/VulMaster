@@ -55,6 +55,40 @@ Testing:
 ./0b_test.sh
 ```
 
+## Example of input json file
+```json
+[
+  {
+    "questions": "CWE-(ID) Code Input Vulnerable Code Is: CWE-(ID) (vulnerable function with <vul-start> and <vul-end>)",
+    "answers": [
+      "CWE-(ID) Fixed Code Lines are: <vul-start> (fixed code by developer) [<vul-end>]"  // If <vul-end> not exist, it will insert fixed code before original <vul-start>
+    ],
+    "ctxs": [
+      {
+        "id": "0",
+        "title": "CWE-(ID) Code Input Vulnerable Code Is: CWE-(ID) (vulnerable function with <vul-start> and <vul-end>)",
+        "text": "CWE-(ID) Fixed Code Lines are:"
+      },
+      {
+        "id": "X02/X03/...", // X is the number of the subject e.g. 2/3/,..., 102/103/...
+        "title": "CWE-(ID) Code Input AST Vulnerable Code Is: (AST segments of patch location in vulnerable function)",
+        "text": "CWE-(ID) Fixed Code Lines are:"
+      },
+      {
+        "id": "10000/10001/10002/...",
+        "title": "CWE-(ID) Vulnerable Code Is: CWE-(ID) (CWE example: vulnerable code with <vul-start> and <vul-end>)",
+        "text": "CWE-(ID) Fixed Code Lines are: <vul-start> (CWE example: fixed code by developer) [<vul-end>]"
+      },
+      {
+        "id": "40000",
+        "title": "CWE-(ID) Name: (CWE name)\tDescription: (CWE description)\tRelated Weakness: (CWE related weakness)\tObserved Examples: (CWE examples with link)",
+        "text": "CWE-(ID) Fixed Code Lines are:"
+      }
+    ]
+  }
+]
+```
+
 ## Generate fixes for CWE vulnerable code examples via ChatGPT
 ```
 python chatgpt_api_generate_fix.py
