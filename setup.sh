@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# Install dependencies
+apt-get update
+apt-get install -y tree-sitter-cli
+
 # Install CodeT5
 pip install gdown
 mkdir bugfix_pretrain_with_ast

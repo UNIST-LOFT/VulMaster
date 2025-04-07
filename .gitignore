@@ -2,8 +2,13 @@
 data.rar
 **/pytorch_model.bin
 
-# Experiment results
-checkpoint_final/final_model/run.log
+# Model checkpoints: there're too large
+checkpoint_final/final_model/*
+
+# Temporary ignore pre-process scripts
+# TODO: Remove this when the pre-process scripts are stable
+prepare
 
 **/__pycache__
 **/train.json
+.vscode
