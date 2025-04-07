@@ -55,6 +55,10 @@ Testing:
 ./0b_test.sh
 ```
 
+## Evaluation
+
+To evaluate ExtractFix, look [readme in benchmarks](benchmarks/README.md) for details.
+
 ## Example of input json file
 ```json
 [
