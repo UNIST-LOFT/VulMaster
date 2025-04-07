@@ -7,7 +7,10 @@ checkpoint_final/final_model/*
 
 # Temporary ignore pre-process scripts
 # TODO: Remove this when the pre-process scripts are stable
-prepare
+setup/extractfix.json
+setup/test.csv
+setup/train.csv
+setup/valid.csv
 
 **/__pycache__
 **/train.json
