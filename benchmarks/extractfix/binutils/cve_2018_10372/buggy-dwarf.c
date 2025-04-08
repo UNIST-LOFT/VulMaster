@@ -200,9 +200,8 @@ process_cu_tu_index (struct dwarf_section *section, int do_display)
 		  return 0;
 		}
 
-	      if (!do_display) {
-			<vul-start><vul-end>
-			memcpy (&this_set[row - 1].signature, ph, sizeof (uint64_t));
+		if (!do_display) {
+			<vul-start>memcpy (&this_set[row - 1].signature, ph, sizeof (uint64_t));<vul-end>
 		  }
 
 	      prow = poffsets + (row - 1) * ncols * 4;

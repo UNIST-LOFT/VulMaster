@@ -12,9 +12,9 @@ bytes_chunk_extract (uintmax_t k, uintmax_t n, char *buf, size_t bufsize,
   start = (k - 1) * (file_size / n);
   end = (k == n) ? file_size : k * (file_size / n);
 
-  <vul-start>if (initial_read != SIZE_MAX || start < initial_read)<vul-end>
+  if (initial_read != SIZE_MAX || start < initial_read)
     {
-      memmove (buf, buf + start, initial_read - start);
+      <vul-start>memmove (buf, buf + start, initial_read - start);<vul-end>
       initial_read -= start;
     }
   else

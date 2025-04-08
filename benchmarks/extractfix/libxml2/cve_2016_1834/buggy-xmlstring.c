@@ -25,8 +25,7 @@ xmlStrncat(xmlChar *cur, const xmlChar *add, int len) {
         return(xmlStrndup(add, len));
 
     size = xmlStrlen(cur);
-    <vul-start><vul-end>
-    ret = (xmlChar *) xmlRealloc(cur, (size + len + 1) * sizeof(xmlChar));
+    <vul-start>ret = (xmlChar *) xmlRealloc(cur, (size + len + 1) * sizeof(xmlChar));<vul-end>
     if (ret == NULL) {
         xmlErrMemory(NULL, NULL);
         return(cur);

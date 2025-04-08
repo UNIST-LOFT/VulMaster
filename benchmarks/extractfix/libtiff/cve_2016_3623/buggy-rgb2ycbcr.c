@@ -5,8 +5,7 @@ cvtRaster(TIFF* tif, uint32* raster, uint32 width, uint32 height)
 	tstrip_t strip = 0;
 	tsize_t cc, acc;
 	unsigned char* buf;
-	<vul-start><vul-end>
-	uint32 rwidth = roundup(width, horizSubSampling);
+	<vul-start>uint32 rwidth = roundup(width, horizSubSampling);<vul-end>
 	uint32 rheight = roundup(height, vertSubSampling);
 	uint32 nrows = (rowsperstrip > rheight ? rheight : rowsperstrip);
         uint32 rnrows = roundup(nrows,vertSubSampling);

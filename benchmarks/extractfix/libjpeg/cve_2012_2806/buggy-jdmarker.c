@@ -23,8 +23,8 @@ get_sos (j_decompress_ptr cinfo)
 
   /* Collect the component-spec parameters */
 
-  <vul-start>for (i = 0; i < cinfo->num_components; i++)<vul-end>
-    cinfo->cur_comp_info[i] = NULL;
+  for (i = 0; i < cinfo->num_components; i++)
+    <vul-start>cinfo->cur_comp_info[i] = NULL;<vul-end>
 
   for (i = 0; i < n; i++) {
     INPUT_BYTE(cinfo, cc, return FALSE);

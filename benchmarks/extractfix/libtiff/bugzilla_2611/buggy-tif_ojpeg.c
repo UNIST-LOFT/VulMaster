@@ -12,8 +12,7 @@ OJPEGDecodeRaw(TIFF* tif, uint8* buf, tmsize_t cc)
 	uint32 q;
 	uint8* r;
 	uint8 sx,sy;
-	<vul-start><vul-end>
-	if (cc%sp->bytes_per_line!=0)
+	<vul-start>if (cc%sp->bytes_per_line!=0)<vul-end>
 	{
 		TIFFErrorExt(tif->tif_clientdata,module,"Fractional scanline not read");
 		return(0);

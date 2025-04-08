@@ -109,8 +109,7 @@ JPEGSetupEncode(TIFF* tif)
         sp->cinfo.c.bits_in_jsample = td->td_bitspersample;
 #endif
 	if (isTiled(tif)) {
-		<vul-start><vul-end>
-		if ((td->td_tilelength % (sp->v_sampling * DCTSIZE)) != 0) {
+		<vul-start>if ((td->td_tilelength % (sp->v_sampling * DCTSIZE)) != 0)<vul-end> {
 			TIFFErrorExt(tif->tif_clientdata, module,
 				  "JPEG tile height must be multiple of %d",
 				  sp->v_sampling * DCTSIZE);

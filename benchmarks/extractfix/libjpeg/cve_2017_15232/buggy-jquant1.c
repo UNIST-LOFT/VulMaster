@@ -14,11 +14,11 @@ quantize_ord_dither (j_decompress_ptr cinfo, JSAMPARRAY input_buf,
   int row;
   JDIMENSION col;
   JDIMENSION width = cinfo->output_width;
-  <vul-start><vul-end>
+  
 
   for (row = 0; row < num_rows; row++) {
     /* Initialize output values to 0 so can process components separately */
-    jzero_far((void *) output_buf[row], (size_t) (width * sizeof(JSAMPLE)));
+    <vul-start>jzero_far((void *) output_buf[row], (size_t) (width * sizeof(JSAMPLE)));<vul-end>
     row_index = cquantize->row_index;
     for (ci = 0; ci < nc; ci++) {
       input_ptr = input_buf[row] + ci;

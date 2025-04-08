@@ -6,7 +6,6 @@ PSDataColorContig(FILE* fd, TIFF* tif, uint32 w, uint32 h, int nc)
 	tsize_t cc;
 	unsigned char *tf_buf;
 	unsigned char *cp, c;
-	<vul-start><vul-end>
 
 	(void) w;
 	tf_buf = (unsigned char *) _TIFFmalloc(tf_bytesperrow);
@@ -43,7 +42,7 @@ PSDataColorContig(FILE* fd, TIFF* tif, uint32 w, uint32 h, int nc)
 				case 2: c = *cp++ + adjust; PUTHEX(c,fd);
 				case 1: c = *cp++ + adjust; PUTHEX(c,fd);
 				}
-				cp += es;
+				<vul-start>cp += es;<vul-start>
 			}
 		} else {
 			cc = 0;

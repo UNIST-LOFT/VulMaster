@@ -34,8 +34,7 @@ static int jpc_siz_getparms(jpc_ms_t *ms, jpc_cstate_t *cstate,
 			jas_free(siz->comps);
 			return -1;
 		}
-		<vul-start><vul-end>
-		siz->comps[i].sgnd = (tmp >> 7) & 1;
+		<vul-start>siz->comps[i].sgnd = (tmp >> 7) & 1;<vul-end>
 		siz->comps[i].prec = (tmp & 0x7f) + 1;
 	}
 	if (jas_stream_eof(in)) {

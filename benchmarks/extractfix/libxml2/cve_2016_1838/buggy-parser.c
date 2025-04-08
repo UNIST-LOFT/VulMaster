@@ -25,9 +25,9 @@ xmlParseEndTag2(xmlParserCtxtPtr ctxt, const xmlChar *prefix,
     }
     SKIP(2);
 
-    <vul-start>if ((tlen > 0) && (xmlStrncmp(ctxt->input->cur, ctxt->name, tlen) == 0))<vul-end> {
+    if ((tlen > 0) && (xmlStrncmp(ctxt->input->cur, ctxt->name, tlen) == 0)) {
         if (ctxt->input->cur[tlen] == '>') {
-	    ctxt->input->cur += tlen + 1;
+        <vul-start>ctxt->input->cur += tlen + 1;<vul-end>
 	    ctxt->input->col += tlen + 1;
 	    goto done;
 	}

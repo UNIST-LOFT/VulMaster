@@ -44,7 +44,6 @@ PixarLogDecode(TIFF* tif, uint8* op, tmsize_t occ, uint16 s)
 		TIFFErrorExt(tif->tif_clientdata, module, "ZLib cannot deal with buffers this size");
 		return (0);
 	}
-	<vul-start><vul-end>
 	do {
 		int state = inflate(&sp->stream, Z_PARTIAL_FLUSH);
 		if (state == Z_STREAM_END) {
@@ -63,7 +62,7 @@ PixarLogDecode(TIFF* tif, uint8* op, tmsize_t occ, uint16 s)
 			    sp->stream.msg ? sp->stream.msg : "(null)");
 			return (0);
 		}
-	} while (sp->stream.avail_out > 0);
+	} <vul-start>while (sp->stream.avail_out > 0)<vul-end>;
 
 	/* hopefully, we got all the bytes we needed */
 	if (sp->stream.avail_out != 0) {

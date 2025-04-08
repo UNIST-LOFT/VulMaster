@@ -140,10 +140,10 @@ tsize_t t2p_readwrite_pdf_image_tile(T2P* t2p, TIFF* input, TIFF* output, ttile_
 				return(0);
 			}
 			if(TIFFGetField(input, TIFFTAG_JPEGTABLES, &count, &jpt) != 0) {
-				<vul-start>if (count >= 4)<vul-end> {
+				if (count >= 4) {
                                         int retTIFFReadRawTile;
                     /* Ignore EOI marker of JpegTables */
-					_TIFFmemcpy(buffer, jpt, count - 2);
+					<vul-start>_TIFFmemcpy(buffer, jpt, count - 2);<vul-end>
 					bufferoffset += count - 2;
                     /* Store last 2 bytes of the JpegTables */
 					table_end[0] = buffer[bufferoffset-2];

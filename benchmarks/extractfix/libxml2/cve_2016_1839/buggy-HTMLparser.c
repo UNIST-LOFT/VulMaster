@@ -29,6 +29,5 @@ htmlParseNameComplex(xmlParserCtxtPtr ctxt) {
 	NEXTL(l);
 	c = CUR_CHAR(l);
     }
-	<vul-start><vul-end>
-    return(xmlDictLookup(ctxt->dict, ctxt->input->cur - len, len));
+    <vul-start>return(xmlDictLookup(ctxt->dict, ctxt->input->cur - len, len));<vul-end>
 }

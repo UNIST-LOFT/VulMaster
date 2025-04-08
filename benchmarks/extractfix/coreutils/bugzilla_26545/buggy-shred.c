@@ -14,8 +14,8 @@ fillpattern (int type, unsigned char *r, size_t size)
   r[0] = (bits >> 4) & 255;
   r[1] = (bits >> 8) & 255;
   r[2] = bits & 255;
-  <vul-start>for (i = 3; i < size / 2; i *= 2)<vul-end>
-    memcpy (r + i, r, i);
+  for (i = 3; i < size / 2; i *= 2)
+  <vul-start>memcpy (r + i, r, i);<vul-end>
   if (i < size)
     memcpy (r + i, r, size - i);
 

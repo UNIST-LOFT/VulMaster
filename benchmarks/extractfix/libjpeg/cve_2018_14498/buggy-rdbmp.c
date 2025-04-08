@@ -27,8 +27,7 @@ get_8bit_row (j_compress_ptr cinfo, cjpeg_source_ptr sinfo)
   outptr = source->pub.buffer[0];
   for (col = cinfo->image_width; col > 0; col--) {
     t = GETJSAMPLE(*inptr++);
-    <vul-start><vul-end>
-    *outptr++ = colormap[0][t]; /* can omit GETJSAMPLE() safely */
+    <vul-start>*outptr++ = colormap[0][t];<vul-end> /* can omit GETJSAMPLE() safely */
     *outptr++ = colormap[1][t];
     *outptr++ = colormap[2][t];
   }

@@ -20,11 +20,11 @@ setImage1(const uint8* br, uint32 rw, uint32 rh)
 	fprintf(stderr, "bpr=%d, sy=%d, bpr*sy=%d\n", bpr, sy, bpr*sy);
 	rows[0] = br + bpr*sy;
 	err += step;
-	<vul-start>while (err >= limit)<vul-end> {
+	while (err >= limit) {
 	    err -= limit;
 	    sy++;
 	    if (err >= limit)
-		rows[nrows++] = br + bpr*sy;
+		<vul-start>rows[nrows++] = br + bpr*sy;<vul-end>
 	}
 	setrow(row, nrows, rows);
 	row += tnw;

@@ -12,6 +12,9 @@ setup/test.csv
 setup/train.csv
 setup/valid.csv
 
+# Evaluation results
+benchmarks/**/result
+
 **/__pycache__
 **/train.json
 .vscode

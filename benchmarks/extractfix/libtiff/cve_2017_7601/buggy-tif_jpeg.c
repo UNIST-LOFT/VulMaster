@@ -58,7 +58,6 @@ JPEGSetupEncode(TIFF* tif)
                     return (0);
                 }
 
-		<vul-start><vul-end>
 		/*
 		 * A ReferenceBlackWhite field *must* be present since the
 		 * default value is inappropriate for YCbCr.  Fill in the
@@ -71,7 +70,7 @@ JPEGSetupEncode(TIFF* tif)
 				float refbw[6];
 				long top = 1L << td->td_bitspersample;
 				refbw[0] = 0;
-				refbw[1] = (float)(top-1L);
+				<vul-start>refbw[1] = (float)(top-1L);<vul-end>
 				refbw[2] = (float)(top>>1);
 				refbw[3] = refbw[1];
 				refbw[4] = refbw[2];

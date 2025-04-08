@@ -29,10 +29,9 @@ xmlDumpElementContent(xmlBufferPtr buf, xmlElementContentPtr content, int glob) 
 	    else
 		xmlDumpElementContent(buf, content->c1, 0);
             xmlBufferWriteChar(buf, " , ");
-		<vul-start><vul-end>
-	    if ((content->c2->type == XML_ELEMENT_CONTENT_OR) ||
+		<vul-start>if ((content->c2->type == XML_ELEMENT_CONTENT_OR) ||
 	        ((content->c2->type == XML_ELEMENT_CONTENT_SEQ) &&
-		 (content->c2->ocur != XML_ELEMENT_CONTENT_ONCE)))
+		 (content->c2->ocur != XML_ELEMENT_CONTENT_ONCE)))<vul-end>
 		xmlDumpElementContent(buf, content->c2, 1);
 	    else
 		xmlDumpElementContent(buf, content->c2, 0);

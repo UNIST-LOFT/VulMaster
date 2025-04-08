@@ -431,7 +431,7 @@ ast_data = []
 all_trees, all_first_trees = [],[]
 for sub in SUBJECTS:
     buggy_file=list(filter(lambda x: x.startswith('buggy'), os.listdir(os.path.join(benchmark_dir,sub))))[0]
-    correct_file=list(filter(lambda x: x.startswith('template'), os.listdir(os.path.join(benchmark_dir,sub))))[0]
+    correct_file=list(filter(lambda x: x.startswith('correct'), os.listdir(os.path.join(benchmark_dir,sub))))[0]
 
     with open(os.path.join(benchmark_dir,sub, buggy_file), 'r') as f:
         buggy_source = f.read()
@@ -463,7 +463,7 @@ print('Generating the dataset...')
 test_fid_input_lists = []
 for i,sub in enumerate(SUBJECTS):
     buggy_file=list(filter(lambda x: x.startswith('buggy'), os.listdir(os.path.join(benchmark_dir,sub))))[0]
-    correct_file=list(filter(lambda x: x.startswith('template'), os.listdir(os.path.join(benchmark_dir,sub))))[0]
+    correct_file=list(filter(lambda x: x.startswith('correct'), os.listdir(os.path.join(benchmark_dir,sub))))[0]
 
     with open(os.path.join(benchmark_dir,sub, buggy_file), 'r') as f:
         buggy_source = f.read()
@@ -471,7 +471,7 @@ for i,sub in enumerate(SUBJECTS):
         correct_source = f.read()
 
     source_ = buggy_source # Buggy source code
-    target_ = correct_file # Correct source code
+    target_ = correct_source # Correct source code
     type_ = f'CWE-{SUBJECTS[sub]}' # CWE number (e.g., CWE-119)
     source_ = type_.strip() + ' ' + source_
     source_ = ' '.join(source_.split()[0:1024])
@@ -539,12 +539,13 @@ for i,sub in enumerate(SUBJECTS):
     question_backup = [{"id": str(0), "title": type_.strip() + " Code Input Vulnerable Code Is: " + question_backup,
                         "text": type_ + " Fixed Code Lines are:"}]
 
-    context_passages = too_long_code_contents + question_backup + cwe_name_and_description + new_candidate_lines
+    context_passages = too_long_code_contents + question_backup + cwe_name_and_description + candidate_lines# new_candidate_lines
     while len(context_passages) < candidate_num:
-        context_passages += too_long_code_contents + question_backup + cwe_name_and_description + new_candidate_lines
+        context_passages += too_long_code_contents + question_backup + cwe_name_and_description + candidate_lines# new_candidate_lines
     context_passages = context_passages[0:candidate_num]
 
     one_item['ctxs'] = context_passages
+    one_item['subject'] = sub
 
     test_fid_input_lists.append(one_item)
 

@@ -39,9 +39,9 @@ static int  readSeparateTilesIntoBuffer (TIFF* in, uint8 *obuf,
     nrow = (row + tl > imagelength) ? imagelength - row : tl;
     for (col = 0; col < imagewidth; col += tw)
       {
-      <vul-start>for (s = 0; s < spp; s++)<vul-end>
+      for (s = 0; s < spp; s++)
         {  /* Read each plane of a tile set into srcbuffs[s] */
-	tbytes = TIFFReadTile(in, srcbuffs[s], col, row, 0, s);
+          <vul-start>tbytes = TIFFReadTile(in, srcbuffs[s], col, row, 0, s);<vul-end>
         if (tbytes < 0  && !ignore)
           {
 	  TIFFError(TIFFFileName(in),

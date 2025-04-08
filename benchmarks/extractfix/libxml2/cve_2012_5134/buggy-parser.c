@@ -196,7 +196,7 @@ xmlParseAttValueComplex(xmlParserCtxtPtr ctxt, int *attlen, int normalize) {
         goto error;
 
     if ((in_space) && (normalize)) {
-        <vul-start>while (buf[len - 1] == 0x20)<vul-end> len--;
+        <vul-start>while (buf[len - 1] == 0x20) len--;<vul-end>
     }
     buf[len] = 0;
     if (RAW == '<') {

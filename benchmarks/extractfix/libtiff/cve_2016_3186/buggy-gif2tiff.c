@@ -11,8 +11,8 @@ readextension(void)
     int status = 1;
 
     (void) getc(infile);
-    <vul-start>while ((count = getc(infile)) && count <= 255)<vul-end>
-        if (fread(buf, 1, count, infile) != (size_t) count) {
+    while ((count = getc(infile)) && count <= 255)
+    <vul-start>if (fread(buf, 1, count, infile) != (size_t) count) <vul-end>{
             fprintf(stderr, "short read from file %s (%s)\n",
                     filename, strerror(errno));
             status = 0;

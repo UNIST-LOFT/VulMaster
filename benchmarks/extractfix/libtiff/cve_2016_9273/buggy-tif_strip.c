@@ -6,12 +6,11 @@ TIFFNumberOfStrips(TIFF* tif)
 {
 	TIFFDirectory *td = &tif->tif_dir;
 	uint32 nstrips;
-	<vul-start><vul-end>
 
 	nstrips = (td->td_rowsperstrip == (uint32) -1 ? 1 :
 	     TIFFhowmany_32(td->td_imagelength, td->td_rowsperstrip));
 	if (td->td_planarconfig == PLANARCONFIG_SEPARATE)
-		nstrips = _TIFFMultiply32(tif, nstrips, (uint32)td->td_samplesperpixel,
-		    "TIFFNumberOfStrips");
+	<vul-start>nstrips = _TIFFMultiply32(tif, nstrips, (uint32)td->td_samplesperpixel,
+		    "TIFFNumberOfStrips");<vul-end>
 	return (nstrips);
 }

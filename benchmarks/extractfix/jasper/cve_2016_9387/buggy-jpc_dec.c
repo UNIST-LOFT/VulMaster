@@ -39,11 +39,10 @@ static int jpc_dec_process_siz(jpc_dec_t *dec, jpc_ms_t *ms)
 		cmpt->hsubstep = 0;
 		cmpt->vsubstep = 0;
 	}
-	<vul-start><vul-end>
 
 	dec->image = 0;
 
-	dec->numhtiles = JPC_CEILDIV(dec->xend - dec->tilexoff, dec->tilewidth);
+	<vul-start>dec->numhtiles = JPC_CEILDIV(dec->xend - dec->tilexoff, dec->tilewidth);<vul-end>
 	dec->numvtiles = JPC_CEILDIV(dec->yend - dec->tileyoff, dec->tileheight);
 	dec->numtiles = dec->numhtiles * dec->numvtiles;
 	JAS_DBGLOG(10, ("numtiles = %d; numhtiles = %d; numvtiles = %d;\n",
