@@ -13,7 +13,7 @@ setup/train.csv
 setup/valid.csv
 
 # Evaluation results
-benchmarks/**/result
+benchmarks/**/result/*.log
 
 **/__pycache__
 **/train.json
